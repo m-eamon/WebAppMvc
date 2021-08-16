@@ -17,6 +17,10 @@ Add Service - Product
 
 Add View -  Product
 
+dotnet add package System.Net.Http.Formatting.Extension (Http)
+
+dotnet add package Newtonsoft.Json
+
 ### Troubleshoot
 
 DBCreate - Fix

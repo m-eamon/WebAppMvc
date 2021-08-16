@@ -21,12 +21,12 @@ namespace WebAppMvc.Services
         public IEnumerable<ProductModel> GetProducts() {
             IEnumerable<ProductModel> productList = null;
             var request = new HttpRequestMessage(HttpMethod.Get,
-            "https://localhost:5006/api");
+            "https://localhost:5006");
             request.Headers.Add("Accept", "application/json");
             request.Headers.Add("User-Agent", "HttpClientFactory-Sample");
             
             var client = _clientFactory.CreateClient();
-            var response = client.GetAsync("Products");
+            var response = client.GetAsync("api/Products");
             response.Wait();
 
             var result = response.Result;
