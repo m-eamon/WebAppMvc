@@ -11,18 +11,19 @@ using WebAppMvc.Models;
 
 namespace WebAppMvc.Services
 {
-    class ProductService
+    public class ProductService
     {
         public HttpClient Client    { get; }
         public ProductService(HttpClient httpClient) {
-            httpClient.BaseAddress = new Uri("https://localhost:5006");
+            // put in properties file
+            httpClient.BaseAddress = new Uri("https://localhost:5006"); 
             httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
             Client = httpClient;
         }
 
         public async Task<IEnumerable<ProductModel>> GetProducts() 
         {
-            return await Client.GetFromJsonAsync<IEnumerable<ProductModel>>("products");
+            return await Client.GetFromJsonAsync<IEnumerable<ProductModel>>("/products");
         }
 
         //public async Task<WeatherModel> GetWeatherByCountry(int? id) 

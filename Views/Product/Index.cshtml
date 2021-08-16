@@ -1,0 +1,22 @@
+@model IEnumerable<WebAppMvc.Models.ProductModel>;
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<p>All Products</p>
+
+<div class="alert alert-primary" role="alert">
+  No resuts! :(
+</div>
+
+
+@foreach (var item in Model)
+{
+    <p>@Html.DisplayFor(modelItem => item.Id)</p>
+    <p>@Html.DisplayFor(modelItem => item.Title)</p>
+    <p>@Html.DisplayFor(modelItem => item.Category)</p>
+    <p>@Html.DisplayFor(modelItem => item.Description)</p>
+    <p>@Html.DisplayFor(modelItem => item.Price)</p>
+    <p>@Html.DisplayFor(modelItem => item.Retailer)</p>
+}
