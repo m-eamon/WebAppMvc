@@ -13,23 +13,33 @@ namespace WebAppMvc.Services
 {
     public class ProductService
     {
-        public HttpClient Client    { get; }
-        public ProductService(HttpClient httpClient) {
-            // put in properties file
-            httpClient.BaseAddress = new Uri("https://localhost:5006"); 
-            httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
-            Client = httpClient;
+        private readonly IHttpClientFactory _clientFactory;
+        public ProductService(IHttpClientFactory clientFactory) {
+            _clientFactory = clientFactory;
         }
 
-        public async Task<IEnumerable<ProductModel>> GetProducts() 
-        {
-            return await Client.GetFromJsonAsync<IEnumerable<ProductModel>>("/products");
+        public IEnumerable<ProductModel> GetProducts() {
+            IEnumerable<ProductModel> productList = null;
+            var request = new HttpRequestMessage(HttpMethod.Get,
+            "https://localhost:5006/api");
+            request.Headers.Add("Accept", "application/json");
+            request.Headers.Add("User-Agent", "HttpClientFactory-Sample");
+            
+            var client = _clientFactory.CreateClient();
+            var response = client.GetAsync("Products");
+            response.Wait();
+
+            var result = response.Result;
+
+            if(result.IsSuccessStatusCode) {
+                var readJob = result.Content.ReadFromJsonAsync<IList<ProductModel>>();
+                //var readJob = result.Content.ReadAsAsync<IList<ProductModel>>();
+                readJob.Wait();
+                productList = readJob.Result;  
+            }else {
+                productList = Enumerable.Empty<ProductModel>();
+            } 
+            return productList;               
         }
-
-        //public async Task<WeatherModel> GetWeatherByCountry(int? id) 
-        //{
-        //    return await Client.GetFromJsonAsync<WeatherModel>("weatherforecast/" + id);
-        //}
-
     }
 }

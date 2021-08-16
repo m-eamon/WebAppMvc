@@ -22,16 +22,11 @@ namespace WebAppMvc.Controllers
             _logger = logger;
             _productService = productService;
         }
-
         public IActionResult Index()
         {
-            return View(this._productService.GetProducts());
+            IEnumerable<ProductModel> productModels = _productService.GetProducts();
+            return View(productModels);
         }
-
-        //public IActionResult Details(int? id) 
-        //{
-        //    return View(this._weatherService.GetWeatherByCountry(id));
-        //}
 
     }
 }
