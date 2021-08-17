@@ -92,7 +92,7 @@ namespace WebAppMvc.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
-
+       //Create([Bind("Id,Title,Name,ReleaseDate,Genre,Price")] Movie movie)
         public IActionResult Add(CartItemModel cartItem)
         {            
             JsonContent content = JsonContent.Create(cartItem);
