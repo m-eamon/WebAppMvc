@@ -61,7 +61,6 @@ namespace WebAppMvc.Controllers
                 var result = responseTask.Result;
 
                 if (result.IsSuccessStatusCode) {
-                    //var readJob = result.Content.ReadAsAsync<IList<ProductModel>>();
                     var readJob = result.Content.ReadFromJsonAsync<IList<ProductModel>>();
                     readJob.Wait();
 
@@ -104,8 +103,7 @@ namespace WebAppMvc.Controllers
                     var readJob = result.Content.ReadFromJsonAsync<ProductModel>();
                     readJob.Wait();
 
-                    product = readJob.Result;
-                    _logger.LogInformation("Product Titel: " + product.Title.ToString()); 
+                    product = readJob.Result; 
                 } else {                    
                     _logger.LogInformation("Got No Data :(");
                     _logger.LogInformation("STATUS CODE: " + result.StatusCode.ToString());           
