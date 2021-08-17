@@ -20,7 +20,7 @@ dotnet dev-certs https
 ```
 
 ### Verify
-Run the application and verify that you can see the swagger page.
+Run the application and verify that you can see the home page.
 
 ```
 dotnet run

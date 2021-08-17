@@ -60,6 +60,3 @@ dotnet aspnet-codegenerator controller -name ProductItemsController -async -api 
 
 ### Verify
 ProductsController for CRUD operations will now be available.
-
-
-

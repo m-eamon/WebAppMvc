@@ -1,6 +1,6 @@
 namespace WebAppMvc.Models
 {
-    public class ShoppingCartItem
+    public class CartItemModel
     {
         public long Id { get; set; }
         public string Title { get; set; }

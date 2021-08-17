@@ -32,7 +32,6 @@ namespace WebAppMvc.Services
             var result = response.Result;
 
             if(result.IsSuccessStatusCode) {
-                //var readJob = result.Content.ReadAsAsync<IList<ProductModel>>();
                 var readJob = result.Content.ReadFromJsonAsync<IList<ProductModel>>();
                 
                 readJob.Wait();

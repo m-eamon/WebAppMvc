@@ -9,16 +9,14 @@ Containers Docker compose
 ### Developer Setup
 Refer to docs for setup of Api and MVC
 
-Add Model - Product
+Add Models - Product, CartItem 
 
-Add Controller - Product
+Add Controller - Product, CartItem
 
-Add Service - Product
+Add View -  Product, CartItem
 
-Add View -  Product
 
-dotnet add package System.Net.Http.Formatting.Extension (Http)
-
+### packages to add
 dotnet add package Newtonsoft.Json
 
 ### Troubleshoot
@@ -27,4 +25,5 @@ DBCreate - Fix
 Database set up - Hard to do -> DbCreate - Errors sometimes
 dev-cert issue
 Service Issue
-
+Port 1433 issue for db connection
+Routing in MVC
