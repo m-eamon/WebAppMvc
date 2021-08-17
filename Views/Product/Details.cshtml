@@ -43,6 +43,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Cart" asp-route-id="@Model.Id">Add to Shopping Cart</a> | 
+    <a asp-controller="CartItem" asp-action="Add" asp-route-id="@Model.Id">Add to Shopping Cart</a> | 
     <a asp-action="Index">Back to List</a>
 </div>

@@ -91,6 +91,38 @@ namespace WebAppMvc.Controllers
                 }                                 
             }
             return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Add(CartItemModel cartItem)
+        {            
+            JsonContent content = JsonContent.Create(cartItem);
+
+            var httpClientHandler = new HttpClientHandler();
+            httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
+            {
+                return true;
+            };
+
+            //Post request
+            using(var client = new HttpClient(httpClientHandler)) {
+            
+                // this should be in a separate file
+                client.BaseAddress = new Uri("https://localhost:5008");
+               
+                var responseTask = client.PostAsync("api/CartItems", content);
+            
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+
+                if (!result.IsSuccessStatusCode) 
+                {
+                    _logger.LogInformation("Status Code {0}, {1}",result.StatusCode, 
+                    result.StatusCode.ToString());
+                }                                 
+            }
+            return RedirectToAction(nameof(Index));
         }      
+       
     }
 }
