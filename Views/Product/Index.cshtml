@@ -4,19 +4,40 @@
     ViewData["Title"] = "Products";
 }
 
-<p>All Products</p>
-<!--
-<div class="alert alert-primary" role="alert">
-  No resuts! :(
-</div>
--->
+<h1>All Products</h1>
 
-@foreach (var item in Model)
-{
-    <p>@Html.DisplayFor(modelItem => item.Id)</p>
-    <p>@Html.DisplayFor(modelItem => item.Title)</p>
-    <p>@Html.DisplayFor(modelItem => item.Category)</p>
-    <p>@Html.DisplayFor(modelItem => item.Description)</p>
-    <p>@Html.DisplayFor(modelItem => item.Price)</p>
-    <p>@Html.DisplayFor(modelItem => item.Retailer)</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Retailer)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Retailer)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Cart" asp-route-id="@item.Id">Add to Basket</a> |
+            </td>
+        </tr>
 }
+    </tbody>
+</table>
