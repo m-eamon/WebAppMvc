@@ -92,11 +92,16 @@ namespace WebAppMvc.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
-       //Create([Bind("Id,Title,Name,ReleaseDate,Genre,Price")] Movie movie) <-- this is what I need
-       //Or is this content already - what is sent?
-        public IActionResult Add(CartItemModel cartItem)
-        {            
-            JsonContent content = JsonContent.Create(cartItem);
+       
+        public IActionResult Add([Bind("Id,Title,Category,Description,Price,Retailer")] CartItemModel cartItem)
+        {           
+            
+            _logger.LogInformation("Title: {0}", cartItem.Title.ToString());
+
+            CartItemModel cartItem1 = new CartItemModel(0, "Mort", "Fantasy",
+            "Disworld novel", 5.99M, "Easons");
+
+            JsonContent content = JsonContent.Create(cartItem1);
 
             var httpClientHandler = new HttpClientHandler();
             httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
@@ -124,6 +129,5 @@ namespace WebAppMvc.Controllers
             }
             return RedirectToAction(nameof(Index));
         }      
-       
     }
 }

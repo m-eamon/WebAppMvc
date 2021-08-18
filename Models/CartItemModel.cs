@@ -11,5 +11,20 @@ namespace WebAppMvc.Models
         public decimal Price {get; set;}
 
         public string Retailer {get; set;}
+
+        public CartItemModel() {}
+
+        public CartItemModel(long id, string title, string category, string description, 
+        decimal price, string retailer) {
+            Id = id;
+            Title = title;
+            Category = category;
+            Description = description;
+            Price = price;
+            Retailer = retailer;
+        }
+
     }
+
+
 }
