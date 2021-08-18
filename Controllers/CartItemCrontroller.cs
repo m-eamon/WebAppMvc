@@ -92,7 +92,8 @@ namespace WebAppMvc.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
-       //Create([Bind("Id,Title,Name,ReleaseDate,Genre,Price")] Movie movie)
+       //Create([Bind("Id,Title,Name,ReleaseDate,Genre,Price")] Movie movie) <-- this is what I need
+       //Or is this content already - what is sent?
         public IActionResult Add(CartItemModel cartItem)
         {            
             JsonContent content = JsonContent.Create(cartItem);
