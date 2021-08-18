@@ -24,6 +24,17 @@ a {
   border-color: #1861ac;
 }
 
+/* Remove border */
+input {
+  background-color:transparent;
+  border: none;
+  height:30px;
+  width:260px;
+}
+input:focus {
+  outline:none;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
