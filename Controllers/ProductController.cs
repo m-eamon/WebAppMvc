@@ -52,8 +52,10 @@ namespace WebAppMvc.Controllers
             using(var client = new HttpClient(httpClientHandler)) {
             
                 // this should be in a separate file
-                client.BaseAddress = new Uri("https://localhost:5006");
-               
+                //client.BaseAddress = new Uri("https://localhost:5006");
+
+                client.BaseAddress = new Uri("https://products-api:8085");
+
                 var responseTask = client.GetAsync("api/Products");
             
                 responseTask.Wait();
@@ -91,8 +93,8 @@ namespace WebAppMvc.Controllers
             using(var client = new HttpClient(httpClientHandler)) {
             
                 // this should be in a separate file
-                client.BaseAddress = new Uri("https://localhost:5006");
-               
+                client.BaseAddress = new Uri("https://products-api:8085");
+
                 var responseTask = client.GetAsync("api/Products/" + id);
             
                 responseTask.Wait();

@@ -1,0 +1,41 @@
+version: "3.2"
+services:
+    productapp:
+        container_name: products-api
+        build: ../ProductApi
+        ports:
+          - "5006:8085"
+        depends_on:
+          - productdb
+    productdb:
+        container_name: products-db
+        build: ../ProductApi/mssql/.
+        ports:
+          - "1433:1433"
+        environment:
+          MSSQL_PID: "Developer"
+          MSSQL_USER: "sa"
+          MSSQL_SA_PASSWORD: "Passw0rd"
+          ACCEPT_EULA: "Y"
+    shoppingcartapp:
+        container_name: shoppingcart-api
+        build: ../ShoppingCartApi
+        ports:
+          - "5008:8086"
+        depends_on:
+          - shoppingcartdb
+    shoppingcartdb:
+        container_name: shoppingcart-db
+        build: ../ShoppingCartApi/mssql/.
+        ports:
+          - "1434:1433"
+        environment:
+          MSSQL_PID: "Developer"
+          MSSQL_USER: "sa"
+          MSSQL_SA_PASSWORD: "Passw0rd"
+          ACCEPT_EULA: "Y"
+    mvcapp:
+        container_name: webapp-mvc
+        build: .
+        ports:
+            - "5001:8084"
