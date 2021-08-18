@@ -25,7 +25,7 @@ dotnet add package Newtonsoft.Json
 
 DBCreate - Fix
 dev-cert issue
-Service Issue - Could not work
+Service Issue - Could not work - Refactor
  This issue
  httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
             {
