@@ -93,15 +93,11 @@ namespace WebAppMvc.Controllers
             return RedirectToAction(nameof(Index));
         }
        
-        public IActionResult Add([Bind("Id,Title,Category,Description,Price,Retailer")] CartItemModel cartItem)
+        //public IActionResult Add([Bind("Id,Title,Category,Description,Price,Retailer")] CartItemModel cartItem)
+        public IActionResult Add([Bind("Title,Category,Description,Price,Retailer")] CartItemModel cartItem)
         {           
             
-            _logger.LogInformation("Title: {0}", cartItem.Title.ToString());
-
-            CartItemModel cartItem1 = new CartItemModel(0, "Mort", "Fantasy",
-            "Disworld novel", 5.99M, "Easons");
-
-            JsonContent content = JsonContent.Create(cartItem1);
+            JsonContent content = JsonContent.Create(cartItem);
 
             var httpClientHandler = new HttpClientHandler();
             httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
