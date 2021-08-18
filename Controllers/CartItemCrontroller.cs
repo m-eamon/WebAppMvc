@@ -77,6 +77,7 @@ namespace WebAppMvc.Controllers
             
                 // this should be in a separate file
                 client.BaseAddress = new Uri("https://shoppingcart-api:8086");
+                
                 var responseTask = client.DeleteAsync("api/CartItems/" + id);
             
                 responseTask.Wait();
