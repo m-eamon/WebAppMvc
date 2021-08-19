@@ -39,8 +39,8 @@ namespace WebAppMvc.Controllers
             using(var client = new HttpClient(httpClientHandler)) {
             
                 // this should be in a separate file
-                //client.BaseAddress = new Uri("https://shoppingcart-api:8086");  // all containers
-                client.BaseAddress = new Uri("https://localhost:5008");
+                client.BaseAddress = new Uri("https://shoppingcart-api:8086");  // all containers
+                //client.BaseAddress = new Uri("https://localhost:5008");
                 var responseTask = client.GetAsync("api/CartItems");
             
                 responseTask.Wait();
@@ -76,8 +76,8 @@ namespace WebAppMvc.Controllers
             using(var client = new HttpClient(httpClientHandler)) {
             
                 // this should be in a separate file
-                // client.BaseAddress = new Uri("https://shoppingcart-api:8086"); // all containers
-                client.BaseAddress = new Uri("https://localhost:5008");
+                client.BaseAddress = new Uri("https://shoppingcart-api:8086"); // all containers
+                //client.BaseAddress = new Uri("https://localhost:5008");
                 var responseTask = client.DeleteAsync("api/CartItems/" + id);
             
                 responseTask.Wait();
@@ -109,8 +109,8 @@ namespace WebAppMvc.Controllers
             using(var client = new HttpClient(httpClientHandler)) {
             
                 // this should be in a separate file
-                // client.BaseAddress = new Uri("https://shoppingcart-api:8086"); // all containers
-                client.BaseAddress = new Uri("https://localhost:5008");
+                client.BaseAddress = new Uri("https://shoppingcart-api:8086"); // all containers
+                //client.BaseAddress = new Uri("https://localhost:5008");
                 var responseTask = client.PostAsync("api/CartItems", content);
             
                 responseTask.Wait();
