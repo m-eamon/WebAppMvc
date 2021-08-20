@@ -2,9 +2,14 @@
 
 ### System Overview
 
-Architecture MVC - Two api - diagram if time - Yes - Add link to diagram
+#### Architecture
+![Architecture](./docs/imgs/architecture.png)
 
-Containers Docker compose - One compose to rule them all
+The system consists of an MVC web application which consumes services from two apis - product and shopping-cart.  The web application can list all products, show product details, add a product to the shopping cart and remove a product from the cart.
+
+The product and shopping-cart apis are each connected to a separate MSSQL Server database.
+
+The databases, apis and mvc web application all run in docker containers.
 
 ### Developer Setup
 Refer to docs for setup of Api and MVC
@@ -17,6 +22,9 @@ Add View -  Product, CartItem
 
 Add Docker 
 Change localhost to docker container names in api calls
+
+#### Docker Containers
+Containers Docker compose - One compose to rule them all
 
 ### packages to add
 ```shell
