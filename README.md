@@ -5,30 +5,6 @@
     * [Developer Setup](./docs/developer_setup.md)
     * [Trouble Shooting](./docs/troubleshooting.md)
    
-### Developer Setup
-Refer to docs for setup of Api and MVC
-
-Add Models - Product, CartItem 
-
-Add Controller - Product, CartItem
-
-Add View -  Product, CartItem
-
-Add Docker 
-Change localhost to docker container names in api calls
-
-#### Docker Containers
-Containers Docker compose - One compose to rule them all
-
-### packages to add
-```shell
-dotnet add package Newtonsoft.Json
-
-```
-
-### Github repository
-https://github.com/m-eamon/WebAppMvc.git
-
 
 ### Troubleshoot
 

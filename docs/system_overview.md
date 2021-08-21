@@ -7,4 +7,4 @@ The system consists of an MVC web application which consumes services from two a
 
 The product and shopping-cart apis are each connected to a separate MSSQL Server database.
 
-The databases, apis and mvc web application all run in docker containers.
+The databases, apis and mvc web application all run in docker containers.  
