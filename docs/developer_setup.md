@@ -50,7 +50,7 @@ There is one docker containers for this project.
 The <strong>dockerfile</strong> file will build and run the WebApp application in a docker container.  
 
 
-### Docker-Compose
+#### Docker-Compose
 This <strong>docker-compose.yml</strong> file will define and run all containers in this project:
 
 * products-api
