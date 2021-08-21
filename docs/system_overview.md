@@ -1,7 +1,7 @@
 ### System Overview 
 
 #### Architecture
-![Architecture](../imgs/architecture.png)
+![Architecture](./imgs/architecture.png)
 
 The system consists of an MVC web application which consumes services from two apis - product and shopping-cart.  The web application can list all products, show product details, add a product to the shopping cart and remove a product from the cart.
 
